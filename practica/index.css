@@ -1,0 +1,213 @@
+:root {
+    /* Colores Neon Ajustados */
+    --primary-bg-color: #0a0f1a; /* Azul muy oscuro */
+    --secondary-bg-color: #121827;
+    --accent-color: #00ff99; /* Verde Neón */
+    --secondary-accent: #0099ff; /* Azul Neón */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Establece el color primario si la imagen de fondo falla */
+    background-color: var(--primary-bg-color); 
+    color: #e0e0ff;
+    font-family: 'Inter', sans-serif; 
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding-top: 56px; 
+}
+
+/* Overlay de Fondo Informático (Ruta absoluta para Vite, desde la carpeta 'public') */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* RUTA CORREGIDA: Usa el slash '/' para que Vite encuentre la imagen en la carpeta 'public' */
+    /* Asegúrate de que tu imagen 'fondo_informatica.png' esté en la carpeta 'public' */
+    background-image: url('/fondo_informatica.png'); 
+    
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Ajustes para que la imagen se vea sutil */
+    opacity: 0.3; 
+    filter: brightness(0.8) saturate(1.2); 
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* --- ESTILOS DE TIPOGRAFÍA Y TEXTOS --- */
+
+h1, h2, h3 { 
+    font-weight: 700; 
+    color: var(--accent-color); 
+    text-shadow: 0 0 8px rgba(0, 255, 150, 0.5); 
+}
+.text-neon-cyan { 
+    color: var(--secondary-accent); 
+    text-shadow: 0 0 5px var(--secondary-accent); 
+}
+.text-white-75 { color: rgba(255, 255, 255, 0.75); }
+.text-white-50 { color: rgba(255, 255, 255, 0.5); }
+
+#hero p.lead {
+    color: #ffffff;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background: linear-gradient(90deg, rgba(10, 15, 26, 0.95) 0%, rgba(18, 24, 39, 0.92) 100%) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(0, 255, 150, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1030;
+}
+.navbar-brand {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.nav-link {
+    color: #e0e0ff !important;
+    font-weight: 600;
+}
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* --- HERO / MAIN SECTION --- */
+#hero {
+    background: rgba(18, 24, 39, 0.75) !important;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 255, 150, 0.1);
+}
+/* AQUI ES DONDE SE HACE LA FOTO MAS GRANDE */
+.profile-pic {
+    width: 200px; /* Aumentado de 150px a 200px */
+    height: 200px; /* Aumentado de 150px a 200px */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--secondary-accent);
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.7);
+}
+.btn-neon-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-bg-color);
+    border: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 150, 0.7);
+}
+.btn-neon-primary:hover {
+    background-color: #ffffff;
+    color: var(--primary-bg-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: scale(1.05);
+}
+.btn-outline-neon {
+    color: var(--secondary-accent);
+    border-color: var(--secondary-accent);
+    transition: all 0.3s ease;
+}
+.btn-outline-neon:hover {
+    background-color: var(--secondary-accent);
+    color: var(--primary-bg-color);
+    box-shadow: 0 0 15px rgba(0, 153, 255, 0.7);
+}
+
+/* --- PÁGINAS INTERNAS (SOBRE MÍ Y PROYECTOS) --- */
+#about-page, #projects-page {
+    background: rgba(18, 24, 39, 0.75) !important;
+    border-top: 2px solid rgba(0, 153, 255, 0.2);
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+/* Estilos de Insignias (Skills Badges) */
+.skill-badge {
+    background-color: rgba(0, 153, 255, 0.1);
+    color: var(--secondary-accent);
+    border: 1px solid var(--secondary-accent);
+}
+.skill-badge:hover {
+    background-color: var(--secondary-accent);
+    color: var(--primary-bg-color);
+    box-shadow: 0 0 15px rgba(0, 153, 255, 0.8);
+}
+
+/* Estilos de Tarjetas (Cards de Proyectos) */
+.card {
+    background: linear-gradient(135deg, rgba(18, 24, 39, 0.95) 0%, rgba(10, 15, 26, 0.9) 100%);
+    border: 2px solid rgba(0, 153, 255, 0.3);
+    transition: all 0.3s ease;
+}
+.card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 40px rgba(0, 255, 150, 0.4);
+}
+.card-footer { 
+    background: rgba(0, 153, 255, 0.1) !important; 
+    border-top: 1px solid rgba(0, 153, 255, 0.2) !important; 
+}
+
+/* --- MODAL DE PROYECTOS (APLICACIÓN DE FONDO OSCURO/NEÓN) --- */
+.modal-content {
+    background: linear-gradient(135deg, rgba(18, 24, 39, 0.98) 0%, rgba(10, 15, 26, 0.95) 100%);
+    border: 2px solid var(--secondary-accent);
+    box-shadow: 0 0 30px rgba(0, 153, 255, 0.6);
+    color: #e0e0ff; /* Color de texto general en el modal */
+}
+.modal-header {
+    border-bottom: 1px solid rgba(0, 153, 255, 0.4);
+}
+.modal-footer {
+    border-top: 1px solid rgba(0, 153, 255, 0.4);
+}
+.modal-title {
+    color: var(--accent-color); /* Título en verde neón */
+    text-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
+}
+.btn-close {
+    filter: invert(1) brightness(2) sepia(1) hue-rotate(180deg) saturate(3); /* Cierra en color neón */
+}
+.btn-close:hover {
+    filter: invert(1) brightness(2) sepia(1) hue-rotate(90deg) saturate(3); /* Cierra en color verde neón al pasar el ratón */
+}
+
+
+/* --- FOOTER / CONTACTO --- */
+footer#contact {
+    background: linear-gradient(90deg, rgba(18, 24, 39, 0.95) 0%, rgba(10, 15, 26, 0.92) 100%) !important;
+    border-top: 3px solid var(--secondary-accent);
+    color: #ffffff;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    box-shadow: 0 -10px 30px rgba(0, 153, 255, 0.1); 
+}
+/* Estilo del botón grande de email */
+footer a.btn-light {
+     background-color: var(--accent-color);
+     color: var(--primary-bg-color);
+     font-weight: 700;
+     box-shadow: 0 0 15px rgba(0, 255, 150, 0.7);
+}
+footer a.btn-light:hover {
+     background-color: #ffffff;
+     box-shadow: 0 0 20px var(--accent-color);
+}
+/* Estilo del contenedor del QR */
+#contact .border-secondary {
+    border-color: var(--accent-color) !important;
+}
